@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>سياسة الخصوصية - Codevana</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #212121;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #0d47a1;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header img {
+      height: 90px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .language-switcher button {
+      background-color: #0d47a1;
+      border: 2px solid white;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-top: 40px;
+    }
+
+    .language-switcher button:hover {
+      background-color: white;
+      color: #0d47a1;
+    }
+
+    .floating-code {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.2rem;
+      animation: float 6s infinite;
+    }
+
+    @keyframes float {
+      0% { opacity: 0; transform: translateY(0); }
+      25% { opacity: 1; transform: translateY(-10px); }
+      75% { opacity: 1; transform: translateY(-15px); }
+      100% { opacity: 0; transform: translateY(-20px); }
+    }
+
+    main {
+      flex: 1;
+      padding: 20px 20px 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    footer {
+      background-color: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 12px 10px;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left-header">
+      <img src="codevana_logo_without_name.png" alt="Codevana Logo">
+      <h1>Codevana</h1>
+    </div>
+    <div class="language-switcher">
+      <button onclick="location.href='privacy_en.html'">English</button>
+    </div>
+    <span class="floating-code" style="top: 10px; left: 25%;">{}</span>
+    <span class="floating-code" style="top: 40px; left: 35%;">&lt;/&gt;</span>
+    <span class="floating-code" style="top: 5px; left: 45%;">/* */</span>
+    <span class="floating-code" style="top: 30px; left: 55%;">&lt;&gt;</span>
+    <span class="floating-code" style="top: 15px; left: 65%;">=&gt;</span>
+  </header>
+
+  <main>
+    <h2>سياسة الخصوصية</h2>
+   
+      هذا الموقع الإلكتروني مملوك لشركة Codevana وتُديره. نحن نحترم خصوصيتك ونلتزم بحماية معلوماتك الشخصية. توضح هذه السياسة كيفية جمع بياناتك واستخدامها وحمايتها عند زيارتك لموقعنا.
+    
+
+    <h3>المعلومات التي نجمعها</h3>
+    
+      قد نجمع معلومات التعريف الشخصية من المستخدمين بطرق متنوعة، بما في ذلك على سبيل المثال لا الحصر، عند زيارة المستخدمين لموقعنا، أو تسجيلهم فيه، أو فيما يتعلق بالأنشطة أو الخدمات أو الميزات أو الموارد الأخرى التي نوفرها.
+    
+
+    <h3>كيفية استخدامنا للمعلومات</h3>
+  
+      نستخدم هذه المعلومات لتحسين خدمة العملاء، وتخصيص تجربة المستخدم، وتحسين موقعنا الإلكتروني وخدماتنا.
+   
+
+    <h3>حماية معلوماتك</h3>
+    
+      نتبع ممارسات مناسبة لجمع البيانات وتخزينها ومعالجتها لحمايتها من الوصول غير المصرح به، أو التغيير، أو الكشف، أو إتلاف معلوماتك الشخصية.
+   
+
+    <h3>موافقتك على هذه الشروط</h3>
+   
+      باستخدامك لهذا الموقع، فإنك تُقر بموافقتك على هذه السياسة. إذا كنت لا توافق على هذه السياسة، يُرجى عدم استخدام موقعنا.
+   
+  </main>
+
+  <footer>
+    <p>© 2025 Codevana. جميع الحقوق محفوظة.</p>
+    <a href="home.html">الصفحة الرئيسية</a> |
+    <a href="contact.html">اتصل بنا</a>
+  </footer>
+</body>
+</html>
