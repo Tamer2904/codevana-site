@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codevana - Home</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #212121;
+      overflow-x: hidden;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    header {
+      background-color: #0d47a1;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header img {
+      height: 90px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .language-switcher button {
+      background-color: #0d47a1;
+      border: 2px solid white;
+      color: white;
+      padding: 6px 14px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 40px;
+    }
+
+    .language-switcher button:hover {
+      background-color: white;
+      color: #0d47a1;
+    }
+
+    .floating-code {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.2rem;
+      animation: float 6s infinite;
+    }
+
+    @keyframes float {
+      0% { opacity: 0; transform: translateY(0); }
+      25% { opacity: 1; transform: translateY(-10px); }
+      75% { opacity: 1; transform: translateY(-15px); }
+      100% { opacity: 0; transform: translateY(-20px); }
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: #0d47a1;
+    }
+
+    .apps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .app-card {
+      width: 280px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .app-card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .app-card h3 {
+      margin: 10px 0;
+      font-size: 1.2rem;
+      color: #0d47a1;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px 0 20px;
+      padding: 8px 16px;
+      background-color: #0d47a1;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    .btn:hover {
+      background-color: #08306b;
+    }
+
+    footer {
+      background-color: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left-header">
+      <img src="codevana_logo_without_name.png" alt="Codevana Logo" />
+      <h1>Codevana</h1>
+    </div>
+    <div class="language-switcher">
+      <button onclick="location.href='index.html'">العربية</button>
+    </div>
+    <span class="floating-code" style="top: 10px; left: 25%;">{}</span>
+    <span class="floating-code" style="top: 40px; left: 35%;">&lt;/&gt;</span>
+    <span class="floating-code" style="top: 5px; left: 45%;">/* */</span>
+    <span class="floating-code" style="top: 30px; left: 55%;">&lt;&gt;</span>
+    <span class="floating-code" style="top: 15px; left: 65%;">=&gt;</span>
+  </header>
+
+  <main>
+    <section>
+      <h2 class="section-title">Our Services</h2>
+      <ul>
+        <li>Mobile app development for Android and iOS</li>
+        <li>User Interface and Experience Design</li>
+        <li>Interactive web development</li>
+        <li>Custom software solutions for businesses</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-title">Our Products</h2>
+      <div class="apps">
+        <div class="app-card">
+          <img src="memorial.png" alt="Memorial App" />
+          <h3>Memorial Reminder</h3>
+          <a href="#" class="btn">View App</a>
+        </div>
+        <div class="app-card">
+          <img src="prayertimes.png" alt="Prayer Times App" />
+          <h3>Prayer Times</h3>
+          <a href="#" class="btn">View App</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Codevana. All rights reserved.</p>
+    <a href="privacy_en.html">Privacy Policy</a> |
+    <a href="contact_en.html">Contact Us</a>
+  </footer>
+</body>
+</html>
