@@ -165,7 +165,7 @@
   document.getElementById('contact-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    emailjs.sendForm('service_whrdr3c', 'ContactFormTemplate', this)
+    emailjs.sendForm('service_whrdr3c', 'template_dcs3kxg', this)
       .then(function (response) {
         alert("✅ تم إرسال الرسالة بنجاح");
         console.log("EmailJS response:", response);
