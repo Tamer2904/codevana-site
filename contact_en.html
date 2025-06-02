@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Codevana</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #212121;
+      overflow-x: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    header {
+      background-color: #0d47a1;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header img {
+      height: 90px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .language-switcher {
+      position: absolute;
+      right: 12px;
+      top: 58px;
+    }
+
+    .language-switcher button {
+      background-color: #0d47a1;
+      color: white;
+      border: 2px solid white;
+      padding: 6px 14px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .language-switcher button:hover {
+      background-color: white;
+      color: #0d47a1;
+    }
+
+    .floating-code {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.2rem;
+      animation: float 6s infinite;
+    }
+
+    @keyframes float {
+      0% { opacity: 0; transform: translateY(0); }
+      25% { opacity: 1; transform: translateY(-10px); }
+      75% { opacity: 1; transform: translateY(-15px); }
+      100% { opacity: 0; transform: translateY(-20px); }
+    }
+
+    main {
+      padding: 40px 20px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    form input, form textarea {
+      width: 90%;
+      max-width: 600px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 0 auto 15px;
+      box-sizing: border-box;
+    }
+
+    form button {
+      background-color: #0d47a1;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+
+    footer {
+      background-color: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 12px 10px;
+      font-size: 0.9rem;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left-header">
+      <img src="codevana_logo_without_name.png" alt="Codevana Logo">
+      <h1>Codevana</h1>
+    </div>
+    <div class="language-switcher">
+      <button onclick="window.location.href='contact.html'">العربية</button>
+    </div>
+    <span class="floating-code" style="top: 10px; left: 25%;">{}</span>
+    <span class="floating-code" style="top: 40px; left: 35%;">&lt;/&gt;</span>
+    <span class="floating-code" style="top: 5px; left: 45%;">/* */</span>
+    <span class="floating-code" style="top: 30px; left: 55%;">&lt;&gt;</span>
+    <span class="floating-code" style="top: 15px; left: 65%;">=&gt;</span>
+  </header>
+
+  <main>
+    <h2>Contact Us</h2>
+    <!-- EmailJS Contact Form -->
+<form id="contact-form">
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <textarea name="message" rows="5" placeholder="Type your message here..." required></textarea>
+  <button type="submit">Send</button>
+</form>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("_qTWznzKyGOVaz5ob"); // Replace with your actual public key from EmailJS
+  })();
+
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_whrdr3c', 'ContactFormTemplate', this)
+      .then(function(response) {
+        alert("✅ Your message has been sent successfully.");
+      }, function(error) {
+        alert("❌ An error occurred while sending the message.");
+      });
+  });
+</script>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Codevana. All rights reserved.</p>
+    <a href="privacy_en.html">Privacy Policy</a> |
+    <a href="home_en.html" style="margin-right: auto;">Home</a>
+  </footer>
+</body>
+</html>
