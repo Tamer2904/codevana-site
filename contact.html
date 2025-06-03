@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اتصل بنا - Codevana</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #212121;
+      overflow-x: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    header {
+      background-color: #0d47a1;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header img {
+      height: 90px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .language-switcher button {
+      background-color: #0d47a1;
+      border: 2px solid white;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-top: 40px;
+    }
+
+    .language-switcher button:hover {
+      background-color: white;
+      color: #0d47a1;
+    }
+
+    .floating-code {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.2rem;
+      animation: float 6s infinite;
+    }
+
+    @keyframes float {
+      0% { opacity: 0; transform: translateY(0); }
+      25% { opacity: 1; transform: translateY(-10px); }
+      75% { opacity: 1; transform: translateY(-15px); }
+      100% { opacity: 0; transform: translateY(-20px); }
+    }
+
+    main {
+      padding: 40px 20px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    form input, form textarea {
+      width: 90%;
+      max-width: 600px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 0 auto 15px;
+      box-sizing: border-box;
+    }
+
+    .g-recaptcha {
+      display: flex;
+      justify-content: center;
+      direction: ltr;
+      margin: 10px auto;
+    }
+
+    form button {
+      background-color: #0d47a1;
+      color: white;
