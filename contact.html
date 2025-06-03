@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اتصل بنا - Codevana</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #212121;
+      overflow-x: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    header {
+      background-color: #0d47a1;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header img {
+      height: 90px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .language-switcher button {
+      background-color: #0d47a1;
+      border: 2px solid white;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-top: 40px;
+    }
+
+    .language-switcher button:hover {
+      background-color: white;
+      color: #0d47a1;
+    }
+
+    .floating-code {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.2rem;
+      animation: float 6s infinite;
+    }
+
+    @keyframes float {
+      0% { opacity: 0; transform: translateY(0); }
+      25% { opacity: 1; transform: translateY(-10px); }
+      75% { opacity: 1; transform: translateY(-15px); }
+      100% { opacity: 0; transform: translateY(-20px); }
+    }
+
+    main {
+      padding: 40px 20px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    form input, form textarea {
+      width: 90%;
+      max-width: 600px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 0 auto 15px;
+      box-sizing: border-box;
+    }
+
+    form button {
+      background-color: #0d47a1;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+
+    footer {
+      background-color: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 12px 10px;
+      font-size: 0.9rem;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+      margin: 0 10px;
+    }
+<style>
+  .g-recaptcha {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+  }
+</style>
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left-header">
+      <img src="codevana_logo_without_name.png" alt="Codevana Logo">
+      <h1>Codevana</h1>
+    </div>
+    <div class="language-switcher">
+      <button onclick="window.location.href='contact_en.html'">English</button>
+    </div>
+    <span class="floating-code" style="top: 10px; left: 25%;">{}</span>
+    <span class="floating-code" style="top: 40px; left: 35%;">&lt;/&gt;</span>
+    <span class="floating-code" style="top: 5px; left: 45%;">/* */</span>
+    <span class="floating-code" style="top: 30px; left: 55%;">&lt;&gt;</span>
+    <span class="floating-code" style="top: 15px; left: 65%;">=&gt;</span>
+  </header>
+
+  <main>
+    <h2>اتصل بنا</h2>
+  <!-- EmailJS Contact Form -->
+<form id="contact-form">
+  <input type="text" name="from_name" placeholder="الاسم" required>
+  <input type="email" name="from_email" placeholder="البريد الإلكتروني" required>
+  <textarea name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+
+  <!-- reCAPTCHA هنا السطر الخاص بـ -->
+  <div class="g-recaptcha" data-sitekey="6LdWD1QrAAAAAKdmtFN9LUxGfBWoS3vxOijRNGEU"></div>
+
+  <button type="submit">إرسال</button>
+</form>
+
+<!-- تحميل مكتبة reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- كود إرسال EmailJS مع تحقق reCAPTCHA -->
+<script>
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // تحقق من reCAPTCHA
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (recaptchaResponse.length === 0) {
+      alert('يرجى تأكيد أنك لست روبوتاً.');
+      return;
+    }
+
+    // إرسال النموذج باستخدام EmailJS
+    emailjs.sendForm('service_whrdr3c', 'ContactFormTemplate', this)
+      .then(function () {
+        alert('✅ تم إرسال الرسالة بنجاح!');
+        form.reset();
+        grecaptcha.reset();
+      }, function (error) {
+        alert('❌ حدث خطأ أثناء الإرسال. حاول مرة أخرى.');
+        console.error('EmailJS Error:', error);
+      });
+  });
+</script>
+
+
+
+
+  </main>
+
+  <footer>
+    <p>© 2025 Codevana. جميع الحقوق محفوظة.</p>
+    <a href="privacy.html">سياسة الخصوصية</a> |
+    <a href="home.html" style="margin-right: auto;">الصفحة الرئيسية</a>
+  </footer>
+</body>
+</html>
