@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Codevana - الرئيسية</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -24,9 +22,7 @@
       flex-direction: column;
     }
 
-    ::-webkit-scrollbar {
-      display: none;
-    }
+    ::-webkit-scrollbar { display: none; }
 
     header {
       background-color: #0d47a1;
@@ -61,10 +57,9 @@
       border: 2px solid white;
       color: white;
       padding: 6px 14px;
-      border-radius: 5px;
-      cursor: pointer;
       font-weight: bold;
-      transition: 0.3s;
+      border-radius: 6px;
+      cursor: pointer;
       margin-top: 40px;
     }
 
@@ -73,27 +68,11 @@
       color: #0d47a1;
     }
 
-    .floating-code {
-      position: absolute;
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 1.2rem;
-      animation: float 6s infinite;
-    }
-
-    @keyframes float {
-      0% { opacity: 0; transform: translateY(0); }
-      25% { opacity: 1; transform: translateY(-10px); }
-      75% { opacity: 1; transform: translateY(-15px); }
-      100% { opacity: 0; transform: translateY(-20px); }
-    }
-
-    main {
-      flex: 1;
-    }
+    main { flex: 1; }
 
     section {
       padding: 20px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
     }
 
@@ -106,42 +85,55 @@
     .apps {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 24px;
       justify-content: center;
     }
 
     .app-card {
       width: 280px;
+      height: 340px;
       background: white;
       border: 1px solid #ccc;
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      transition: 0.25s ease-in-out;
+    }
+
+    .app-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
     }
 
     .app-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
-  background-color: #ffffff;
-  padding: 20px;
-  border-bottom: 1px solid #ccc;
-}
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background-color: #ffffff;
+      padding: 10px;
+    }
+
     .app-card h3 {
-      margin: 10px 0;
-      font-size: 1.2rem;
+      margin: 8px 0 0;
+      font-size: 1.15rem;
       color: #0d47a1;
+      text-align: center;
+      width: 100%;
     }
 
     .btn {
       display: inline-block;
-      margin: 10px 0 20px;
+      margin: 10px 0 16px;
       padding: 8px 16px;
       background-color: #0d47a1;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 0.9rem;
     }
 
@@ -174,11 +166,6 @@
     <div class="language-switcher">
       <button onclick="location.href='home_en.html'">English</button>
     </div>
-    <span class="floating-code" style="top: 10px; left: 25%;">{}</span>
-    <span class="floating-code" style="top: 40px; left: 35%;">&lt;/&gt;</span>
-    <span class="floating-code" style="top: 5px; left: 45%;">/* */</span>
-    <span class="floating-code" style="top: 30px; left: 55%;">&lt;&gt;</span>
-    <span class="floating-code" style="top: 15px; left: 65%;">=&gt;</span>
   </header>
 
   <main>
@@ -195,10 +182,11 @@
     <section>
       <h2 class="section-title">منتجاتنا</h2>
       <div class="apps">
+
         <div class="app-card">
           <img src="memorial.png" alt="تذكير الأحباب" />
           <h3>تذكير الأحباب</h3>
-          <a href="#" class="btn">عرض التطبيق</a>
+          <a href="memorial.html" class="btn">عرض التطبيق</a>
         </div>
 
         <div class="app-card">
@@ -210,8 +198,9 @@
         <div class="app-card">
           <img src="prayertimes.png" alt="مواقيت الصلاة" />
           <h3>مواقيت الصلاة</h3>
-          <a href="#" class="btn">عرض التطبيق</a>
+          <a href="prayertimes.html" class="btn">عرض التطبيق</a>
         </div>
+
       </div>
     </section>
   </main>
@@ -223,6 +212,3 @@
   </footer>
 </body>
 </html>
-
-
-
