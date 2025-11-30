@@ -1,70 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Times Hero - Codevana</title>
-<link rel="stylesheet" href="styles.css">
-<style>
-  .app-section {
-    max-width: 900px;
-    margin: auto;
-    padding: 40px 20px;
-    text-align: center;
-  }
-  .app-icon {
-    width: 150px;
-    border-radius: 24px;
-    margin-bottom: 20px;
-  }
-  .app-download {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #0047b3;
-    border-radius: 10px;
-    color: white;
-    text-decoration: none;
-    margin-top: 20px;
-    font-size: 18px;
-  }
-  .features {
-    text-align: left;
-    margin-top: 30px;
-    line-height: 1.9;
-    font-size: 18px;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codevana - Times Hero</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #212121;
+      overflow-x: hidden;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* ====== Header ====== */
+    header {
+      background-color: #0d47a1;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header img {
+      height: 90px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .language-switcher button {
+      background-color: #0d47a1;
+      border: 2px solid white;
+      color: white;
+      padding: 6px 14px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 40px;
+    }
+
+    .language-switcher button:hover {
+      background-color: white;
+      color: #0d47a1;
+    }
+
+    /* ====== Main content ====== */
+    main {
+      flex: 1;
+    }
+
+    .app-section {
+      max-width: 1100px;
+      margin: 40px auto 30px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .app-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin-bottom: 18px;
+    }
+
+    .app-title {
+      font-size: 2rem;
+      margin: 0 0 10px;
+      color: #000;
+    }
+
+    .app-subtitle {
+      font-size: 0.95rem;
+      max-width: 650px;
+      margin: 0 auto 24px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin: 10px 0 30px;
+      padding: 10px 26px;
+      background-color: #0d47a1;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .download-btn:hover {
+      background-color: #08306b;
+    }
+
+    .download-btn span {
+      margin-right: 6px;
+    }
+
+    /* ====== Features list ====== */
+    .features-wrapper {
+      max-width: 900px;
+      margin: 0 auto 50px;
+      text-align: left;
+    }
+
+    .features-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #0d47a1;
+    }
+
+    .features-wrapper ul {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.8;
+      font-size: 0.98rem;
+    }
+
+    /* ====== Footer ====== */
+    footer {
+      background-color: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+      margin: 0 10px;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <a href="home_en.html">Back</a>
-</header>
+  <!-- Header unified with the rest of the site -->
+  <header>
+    <div class="left-header">
+      <img src="codevana_logo_without_name.png" alt="Codevana Logo" />
+      <h1>Codevana</h1>
+    </div>
+    <div class="language-switcher">
+      <!-- Back to Arabic version -->
+      <button onclick="location.href='times_hero.html'">العربية</button>
+    </div>
+  </header>
 
-<section class="app-section">
-  <img src="times_hero.png" class="app-icon" alt="Times Hero">
+  <main>
+    <section class="app-section">
+      <img src="times_hero.png" alt="Times Hero" class="app-icon" />
 
-  <h1>Times Hero</h1>
-  <p>An exciting math game that helps kids master multiplication tables through fun challenges & rewards!</p>
+      <h2 class="app-title">Times Hero</h2>
 
-  <a class="app-download" href="https://drive.google.com/uc?export=download&id=1igBDXgXBH3FBZZgvICGqe0fm6kEdnb9v" target="_blank">
-  Download App 📱
-</a>
-  <div class="features">
-    <h3>Features:</h3>
-    <ul>
-      <li>3 Levels (Easy – Medium – Hard)</li>
-      <li>No question repetition</li>
-      <li>Great rewards & sound effects</li>
-      <li>Stars system to motivate kids</li>
-      <li>Fully Arabic & English support</li>
-    </ul>
-  </div>
-</section>
+      <p class="app-subtitle">
+        A fun and interactive multiplication game that helps kids practice times tables
+        through levels, stars, rewards, and cheerful sound effects – designed especially
+        for young learners.
+      </p>
 
-<footer>
-  <p>© Codevana 2025</p>
-</footer>
+      <!-- Same Google Drive APK link -->
+      <a
+        class="download-btn"
+        href="https://drive.google.com/file/d/1igBDXgXBH3FBZZgvICGqe0fm6kEdnb9v/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>📲</span>Download for Android
+      </a>
+
+      <div class="features-wrapper">
+        <p class="features-title">Key Features:</p>
+        <ul>
+          <li>3 difficulty levels (Easy – Medium – Hard) suitable for different ages.</li>
+          <li>No repeated questions within the same round to keep the challenge fresh.</li>
+          <li>Fun sound effects and visual feedback to motivate children.</li>
+          <li>Star-based progress system to encourage kids to improve their score.</li>
+          <li>Full support for both Arabic and English inside the app.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer unified with the rest of the site -->
+  <footer>
+    <p>© 2025 Codevana. All rights reserved.</p>
+    <a href="privacy_en.html">Privacy Policy</a> |
+    <a href="contact_en.html">Contact Us</a>
+  </footer>
 
 </body>
 </html>
