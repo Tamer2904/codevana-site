@@ -110,14 +110,28 @@
       justify-content: center;
     }
 
+    .app-card {
+      width: 280px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     .app-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
-  background-color: #ffffff;
-  padding: 20px;
-  border-bottom: 1px solid #ccc;
-}
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      background-color: #ffffff;
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
     .app-card h3 {
       margin: 10px 0;
       font-size: 1.2rem;
@@ -190,17 +204,13 @@
           <h3>تذكير الأحباب</h3>
           <a href="#" class="btn">عرض التطبيق</a>
         </div>
-        <!-- Times Hero App Card -->
-<div class="product-card">
-  <img src="times_hero.png" alt="أبطال جدول الضرب" class="product-image" />
-  <h3>أبطال جدول الضرب</h3>
-  <p>
-    لعبة تعليمية ممتعة تساعد الأطفال على حفظ وتدريب جدول الضرب عن طريق اللعب مع النجوم والمستويات.
-  </p>
-  <a class="product-button" href="times_hero.html">
-  عرض التطبيق
-</a>
-</div>
+
+        <div class="app-card">
+          <img src="times_hero.png" alt="أبطال جدول الضرب" />
+          <h3>أبطال جدول الضرب</h3>
+          <a href="times_hero.html" class="btn">عرض التطبيق</a>
+        </div>
+
         <div class="app-card">
           <img src="prayertimes.png" alt="مواقيت الصلاة" />
           <h3>مواقيت الصلاة</h3>
@@ -217,6 +227,3 @@
   </footer>
 </body>
 </html>
-
-
-
