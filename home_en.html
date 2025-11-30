@@ -42,9 +42,7 @@
       gap: 15px;
     }
 
-    header img {
-      height: 90px;
-    }
+    header img { height: 90px; }
 
     header h1 {
       margin: 0;
@@ -68,25 +66,11 @@
       color: #0d47a1;
     }
 
-    .floating-code {
-      position: absolute;
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 1.2rem;
-      animation: float 6s infinite;
-    }
-
-    @keyframes float {
-      0% { opacity: 0; transform: translateY(0); }
-      25% { opacity: 1; transform: translateY(-10px); }
-      75% { opacity: 1; transform: translateY(-15px); }
-      100% { opacity: 0; transform: translateY(-20px); }
-    }
-
     main { flex: 1; }
 
     section {
       padding: 20px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
     }
 
@@ -99,43 +83,51 @@
     .apps {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 30px;
       justify-content: center;
     }
 
     .app-card {
-      width: 280px;
+      width: 260px;
+      height: 330px;
       background: white;
-      border: 1px solid #ccc;
-      border-radius: 10px;
+      border: 1px solid #d4d4d4;
+      border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      transition: 0.25s ease-in-out;
+    }
+
+    .app-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
     }
 
     .app-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
-  background-color: #ffffff;
-  padding: 20px;
-  border-bottom: 1px solid #ccc;
-}
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      background-color: #ffffff;
+      padding: 15px;
+    }
+
     .app-card h3 {
-      margin: 10px 0;
-      font-size: 1.2rem;
+      margin: 10px 0 0;
+      font-size: 1.15rem;
       color: #0d47a1;
     }
 
     .btn {
-      display: inline-block;
-      margin: 10px 0 20px;
-      padding: 8px 16px;
+      margin: 10px auto 16px;
+      padding: 8px 18px;
       background-color: #0d47a1;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
-      font-size: 0.9rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
     }
 
     .btn:hover {
@@ -148,7 +140,6 @@
       text-align: center;
       padding: 10px;
       font-size: 0.9rem;
-      width: 100%;
     }
 
     footer a {
@@ -167,11 +158,6 @@
     <div class="language-switcher">
       <button onclick="location.href='home.html'">العربية</button>
     </div>
-    <span class="floating-code" style="top: 10px; left: 25%;">{}</span>
-    <span class="floating-code" style="top: 40px; left: 35%;">&lt;/&gt;</span>
-    <span class="floating-code" style="top: 5px; left: 45%;">/* */</span>
-    <span class="floating-code" style="top: 30px; left: 55%;">&lt;&gt;</span>
-    <span class="floating-code" style="top: 15px; left: 65%;">=&gt;</span>
   </header>
 
   <main>
@@ -192,10 +178,9 @@
         <div class="app-card">
           <img src="memorial.png" alt="Memorial App">
           <h3>Memorial Reminder</h3>
-          <a href="memorial.html" class="btn">View App</a>
+          <a href="memorial_en.html" class="btn">View App</a>
         </div>
 
-        <!-- Times Hero App Card (Fixed) -->
         <div class="app-card">
           <img src="times_hero.png" alt="Times Hero">
           <h3>Times Hero</h3>
@@ -205,7 +190,7 @@
         <div class="app-card">
           <img src="prayertimes.png" alt="Prayer Times App">
           <h3>Prayer Times</h3>
-          <a href="prayertimes.html" class="btn">View App</a>
+          <a href="prayertimes_en.html" class="btn">View App</a>
         </div>
 
       </div>
@@ -217,5 +202,6 @@
     <a href="privacy_en.html">Privacy Policy</a> |
     <a href="contact_en.html">Contact Us</a>
   </footer>
+
 </body>
 </html>
