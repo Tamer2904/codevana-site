@@ -1,1 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codevana - تذكير الأحباب</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #212121;
+      overflow-x: hidden;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    ::-webkit-scrollbar { display: none; }
+
+    /* ====== Header ====== */
+    header {
+      background-color: #0d47a1;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header img {
+      height: 90px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .language-switcher button {
+      background-color: #0d47a1;
+      border: 2px solid white;
+      color: white;
+      padding: 6px 14px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 40px;
+    }
+
+    .language-switcher button:hover {
+      background-color: white;
+      color: #0d47a1;
+    }
+
+    /* ====== Main content ====== */
+    main { flex: 1; }
+
+    .app-section {
+      max-width: 1100px;
+      margin: 40px auto 30px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .app-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin-bottom: 18px;
+    }
+
+    .app-title {
+      font-size: 2rem;
+      margin: 0 0 10px;
+      color: #000;
+    }
+
+    .app-subtitle {
+      font-size: 0.95rem;
+      max-width: 650px;
+      margin: 0 auto 24px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin: 10px 0 30px;
+      padding: 10px 26px;
+      background-color: #0d47a1;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .download-btn:hover {
+      background-color: #08306b;
+    }
+
+    .download-btn span {
+      margin-left: 6px;
+    }
+
+    /* ====== Features list ====== */
+    .features-wrapper {
+      max-width: 900px;
+      margin: 0 auto 50px;
+      text-align: right;
+    }
+
+    .features-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #0d47a1;
+    }
+
+    .features-wrapper ul {
+      margin: 0;
+      padding-right: 20px;
+      line-height: 1.8;
+      font-size: 0.98rem;
+    }
+
+    /* ====== Footer ====== */
+    footer {
+      background-color: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header موحّد مع باقي الموقع -->
+  <header>
+    <div class="left-header">
+      <img src="codevana_logo_without_name.png" alt="Codevana Logo" />
+      <h1>Codevana</h1>
+    </div>
+    <div class="language-switcher">
+      <button onclick="location.href='memorial_en.html'">English</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="app-section">
+      <img src="memorial.png" alt="تذكير الأحباب" class="app-icon" />
+
+      <h2 class="app-title">تذكير الأحباب</h2>
+
+      <p class="app-subtitle">
+        تطبيق بسيط وهادئ لمساعدة العائلة على تذكّر أحبابهم المتوفّين بالدعاء وقراءة القرآن،
+        مع تذكير شهري تلقائي، وقوائم منظّمة بأسماء المتوفين وتواريخ الوفاة، وصفحة خاصة لتوزيع
+        أجزاء القرآن بين أفراد العائلة.
+      </p>
+
+      <!-- 🔻 هنا حط لينك الـ APK من Google Drive بعد ما ترفعه -->
+      <a
+        class="download-btn"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>📲</span> تنزيل التطبيق لأندرويد
+      </a>
+
+      <div class="features-wrapper">
+        <p class="features-title">مميزات التطبيق:</p>
+        <ul>
+          <li>إضافة وحفظ أسماء المتوفين مع تاريخ الوفاة وملاحظات خاصة لكل شخص.</li>
+          <li>عرض أسماء المتوفين بحسب الشهر لتسهيل التذكّر في مواسم الرحمة.</li>
+          <li>قسم خاص لختمة القرآن وتوزيع الأجزاء بين أفراد العائلة بشكل منظّم.</li>
+          <li>إمكانية تفعيل تذكير شهري يظهر عند فتح التطبيق في بداية كل شهر.</li>
+          <li>واجهة عربية بسيطة وواضحة يمكن لجميع أفراد العائلة التعامل معها.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer موحّد -->
+  <footer>
+    <p>© 2025 Codevana. جميع الحقوق محفوظة.</p>
+    <a href="privacy.html">سياسة الخصوصية</a> |
+    <a href="contact.html">اتصل بنا</a>
+  </footer>
+
+</body>
+</html>
 
