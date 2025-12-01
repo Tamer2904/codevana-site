@@ -225,6 +225,19 @@
 .cta-btn:active {
   transform: scale(0.95);
 }
+    .floating-code {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+  animation: float 6s infinite;
+}
+
+@keyframes float {
+  0%   { opacity: 0; transform: translateY(0); }
+  25%  { opacity: 1; transform: translateY(-10px); }
+  75%  { opacity: 1; transform: translateY(-15px); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
   </style>
 </head>
 <body>
@@ -288,6 +301,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
