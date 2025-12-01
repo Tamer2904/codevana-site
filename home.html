@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Codevana - الرئيسية</title>
   <style>
+    .floating-code {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+  animation: float 6s infinite;
+}
+
+@keyframes float {
+  0%   { opacity: 0; transform: translateY(0); }
+  25%  { opacity: 1; transform: translateY(-10px); }
+  75%  { opacity: 1; transform: translateY(-15px); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
     * { box-sizing: border-box; }
 
     html, body {
@@ -272,6 +285,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
