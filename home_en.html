@@ -159,6 +159,21 @@
       text-decoration: underline;
       margin: 0 10px;
     }
+    /* Button Animations — Scale + Glow + Bounce */
+.btn, .download-btn, .product-button {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Hover — تكبير بسيط + إضاءة */
+.btn:hover, .download-btn:hover, .product-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
+}
+
+/* Active — عند الضغط */
+.btn:active, .download-btn:active, .product-button:active {
+  transform: scale(0.95);
+}
   </style>
 </head>
 <body>
@@ -216,5 +231,6 @@
   </footer>
 </body>
 </html>
+
 
 
