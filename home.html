@@ -5,223 +5,243 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Codevana - الرئيسية</title>
   <style>
-    .floating-code {
-  position: absolute;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 1.2rem;
-  animation: float 6s infinite;
-}
+  * { box-sizing: border-box; }
 
-@keyframes float {
-  0%   { opacity: 0; transform: translateY(0); }
-  25%  { opacity: 1; transform: translateY(-10px); }
-  75%  { opacity: 1; transform: translateY(-15px); }
-  100% { opacity: 0; transform: translateY(-20px); }
-}
-    * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #212121;
+    overflow-x: hidden;
+  }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #212121;
-      overflow-x: hidden;
-    }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
 
-    body {
-      display: flex;
-      flex-direction: column;
-    }
+  ::-webkit-scrollbar { display: none; }
 
-    ::-webkit-scrollbar { display: none; }
+  header {
+    background-color: #0d47a1;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
 
-    header {
-      background-color: #0d47a1;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 12px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+  .left-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
 
-    .left-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+  header img {
+    height: 90px;
+  }
 
-    header img {
-      height: 90px;
-    }
+  header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: white;
+  }
 
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      color: white;
-    }
+  .language-switcher button {
+    background-color: #0d47a1;
+    border: 2px solid white;
+    color: white;
+    padding: 6px 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 40px;
+  }
 
-    .language-switcher button {
-      background-color: #0d47a1;
-      border: 2px solid white;
-      color: white;
-      padding: 6px 14px;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 40px;
-    }
+  .language-switcher button:hover {
+    background-color: white;
+    color: #0d47a1;
+  }
 
-    .language-switcher button:hover {
-      background-color: white;
-      color: #0d47a1;
-    }
+  main { flex: 1; }
 
-    main { flex: 1; }
+  section {
+    padding: 20px;
+    max-width: 1100px;
+    margin: auto;
+  }
 
-    section {
-      padding: 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: #0d47a1;
+  }
 
-    .section-title {
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-      color: #0d47a1;
-    }
+  .apps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+  }
 
-    .apps {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      justify-content: center;
-    }
+  .app-card {
+    width: 280px;
+    height: 340px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.25s ease-in-out;
+  }
 
-    .app-card {
-      width: 280px;
-      height: 340px;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      transition: 0.25s ease-in-out;
-    }
+  .app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+  }
 
-    .app-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-    }
+  .app-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    padding: 10px;
+    background-color: #ffffff;
+    /* شيلنا الخط السفلي */
+  }
 
-    .app-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: contain;
-      padding: 10px;
-      background-color: #ffffff;
-         }
+  .app-card h3 {
+    margin: 8px 0 0;
+    font-size: 1.15rem;
+    color: #0d47a1;
+    text-align: center;
+    width: 100%;
+  }
 
-    .app-card h3 {
-      margin: 8px 0 0;
-      font-size: 1.15rem;
-      color: #0d47a1;
-      text-align: center;
-      width: 100%;
-    }
+  .btn {
+    display: inline-block;
+    margin: 10px 0 16px;
+    padding: 8px 16px;
+    background-color: #0d47a1;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
 
-    .btn {
-      display: inline-block;
-      margin: 10px 0 16px;
-      padding: 8px 16px;
-      background-color: #0d47a1;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 0.9rem;
-    }
+  .btn:hover {
+    background-color: #08306b;
+  }
 
-    .btn:hover {
-      background-color: #08306b;
-    }
+  footer {
+    background-color: #0d47a1;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+    width: 100%;
+  }
 
-    footer {
-      background-color: #0d47a1;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      font-size: 0.9rem;
-      width: 100%;
-    }
+  footer a {
+    color: white;
+    text-decoration: underline;
+    margin: 0 10px;
+  }
 
-    footer a {
-      color: white;
-      text-decoration: underline;
-      margin: 0 10px;
-    }
-    /* Button Animations — Scale + Glow + Bounce */
-.btn, .download-btn, .product-button {
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
+  /* أنيميشن الأزرار العامة */
+  .btn, .download-btn, .product-button {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
 
-/* Hover — تكبير بسيط + إضاءة */
-.btn:hover, .download-btn:hover, .product-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
-}
+  .btn:hover, .download-btn:hover, .product-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
+  }
 
-/* Active — عند الضغط */
-.btn:active, .download-btn:active, .product-button:active {
-  transform: scale(0.95);
-}
-    .hero {
-  background: transparent;        /* بدل الأزرق */
-  color: #0d47a1;                 /* نخلي النص أزرق */
-  text-align: center;
-  padding: 16px 10px 8px;         /* ارتفاع صغير فعليًا */
-  margin: 0 auto 10px;
-  max-width: 1000px;              /* نفس عرض المحتوى */
-}
-.hero h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
+  .btn:active, .download-btn:active, .product-button:active {
+    transform: scale(0.95);
+  }
 
-.hero p {
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto 20px;
-}
+  /* ================= Hero ================= */
 
-.cta-btn {
-  display: inline-block;
-  padding: 10px 22px;
-  background: #ffffff;
-  color: #0d47a1;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: transform 0.2s, background 0.3s;
-}
+  .hero {
+    position: relative;
+    background: transparent;
+    color: #0d47a1;
+    text-align: center;
+    padding: 16px 10px 8px;
+    margin: 0 auto 10px;
+    max-width: 1000px;
+  }
 
-.cta-btn:hover {
-  background: #e3f2fd;
-  transform: scale(1.05);
-}
+  .hero h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
 
-.cta-btn:active {
-  transform: scale(0.95);
-}
-  </style>
+  .hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 20px;
+  }
+
+  /* الأكواد العائمة داخل الهيرو */
+  .hero-floating {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .floating-code {
+    position: absolute;
+    color: rgba(13, 71, 161, 0.2); /* أزرق فاتح شفاف */
+    font-size: 1.8rem;
+    animation: float 6s infinite;
+  }
+
+  .floating-code:nth-child(1) { top: 8px;  left: 15%; }
+  .floating-code:nth-child(2) { top: 30px; left: 30%; }
+  .floating-code:nth-child(3) { top: 5px;  left: 50%; }
+  .floating-code:nth-child(4) { top: 28px; left: 65%; }
+  .floating-code:nth-child(5) { top: 12px; left: 80%; }
+
+  @keyframes float {
+    0%   { opacity: 0; transform: translateY(0); }
+    25%  { opacity: 1; transform: translateY(-8px); }
+    75%  { opacity: 1; transform: translateY(-12px); }
+    100% { opacity: 0; transform: translateY(-16px); }
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 10px 22px;
+    background: #0d47a1;      /* أزرق زي بقية الهوية */
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.2s, background 0.3s, box-shadow 0.2s;
+  }
+
+  .cta-btn:hover {
+    background: #08306b;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
+  }
+
+  .cta-btn:active {
+    transform: scale(0.95);
+  }
+</style>
 </head>
 <body>
   <header>
@@ -285,6 +305,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
