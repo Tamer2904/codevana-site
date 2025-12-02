@@ -5,267 +5,243 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Codevana - الرئيسية</title>
   <style>
-  * { box-sizing: border-box; }
+    * { box-sizing: border-box; }
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
-    color: #212121;
-    overflow-x: hidden;
-  }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #212121;
+      overflow-x: hidden;
+    }
 
-  body {
-    display: flex;
-    flex-direction: column;
-  }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
 
-  ::-webkit-scrollbar { display: none; }
+    ::-webkit-scrollbar { display: none; }
 
-  header {
-    background-color: #0d47a1;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
+    header {
+      background-color: #0d47a1;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-  .left-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
 
-  header img {
-    height: 90px;
-  }
+    header img {
+      height: 90px;
+    }
 
-  header h1 {
-    margin: 0;
-    font-size: 1.8rem;
-    color: white;
-  }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: white;
+    }
 
-  .language-switcher button {
-    background-color: #0d47a1;
-    border: 2px solid white;
-    color: white;
-    padding: 6px 14px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 40px;
-  }
+    .language-switcher button {
+      background-color: #0d47a1;
+      border: 2px solid white;
+      color: white;
+      padding: 6px 14px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 40px;
+    }
 
-  .language-switcher button:hover {
-    background-color: white;
-    color: #0d47a1;
-  }
+    .language-switcher button:hover {
+      background-color: white;
+      color: #0d47a1;
+    }
 
-  main { flex: 1; }
+    main { flex: 1; }
 
-  section {
-    padding: 20px;
-    max-width: 1100px;
-    margin: auto;
-  }
+    section {
+      padding: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-  .section-title {
-    font-size: 1.6rem;
-    margin-bottom: 20px;
-    color: #0d47a1;
-  }
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: #0d47a1;
+    }
 
-  .apps {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    justify-content: center;
-  }
+    /* ================= Hero ================= */
 
-  .app-card {
-    width: 280px;
-    height: 340px;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    transition: 0.25s ease-in-out;
-  }
+    .hero {
+      background: transparent;
+      color: #0d47a1;
+      text-align: center;
+      padding: 16px 10px 8px;
+      margin: 0 auto 10px;
+      max-width: 1000px;
+    }
 
-  .app-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-  }
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
 
-  .app-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-    padding: 10px;
-    background-color: #ffffff;
-    /* شيلنا الخط السفلي */
-  }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
 
-  .app-card h3 {
-    margin: 8px 0 0;
-    font-size: 1.15rem;
-    color: #0d47a1;
-    text-align: center;
-    width: 100%;
-  }
+    /* سطر الأكواد المتحركة داخل الهيرو */
+    .hero-codes-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 8px;
+    }
 
-  .btn {
-    display: inline-block;
-    margin: 10px 0 16px;
-    padding: 8px 16px;
-    background-color: #0d47a1;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.9rem;
-  }
+    .hero-code {
+      color: rgba(13, 71, 161, 0.35);
+      font-size: 2.1rem;
+      opacity: 0;
+      animation: floatUp 6s ease-in-out infinite;
+    }
 
-  .btn:hover {
-    background-color: #08306b;
-  }
+    .hero-code:nth-child(2) { animation-delay: 0.3s; }
+    .hero-code:nth-child(3) { animation-delay: 0.6s; }
+    .hero-code:nth-child(4) { animation-delay: 0.9s; }
+    .hero-code:nth-child(5) { animation-delay: 1.2s; }
 
-  footer {
-    background-color: #0d47a1;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 0.9rem;
-    width: 100%;
-  }
+    @keyframes floatUp {
+      0%   { opacity: 0; transform: translateY(0); }
+      20%  { opacity: 1; transform: translateY(-4px); }
+      80%  { opacity: 1; transform: translateY(-8px); }
+      100% { opacity: 0; transform: translateY(-12px); }
+    }
 
-  footer a {
-    color: white;
-    text-decoration: underline;
-    margin: 0 10px;
-  }
+    .cta-btn {
+      display: inline-block;
+      padding: 10px 22px;
+      background: #0d47a1;
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: transform 0.2s, background 0.3s, box-shadow 0.2s;
+    }
 
-  /* أنيميشن الأزرار العامة */
-  .btn, .download-btn, .product-button {
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  }
+    .cta-btn:hover {
+      background: #08306b;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
+    }
 
-  .btn:hover, .download-btn:hover, .product-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
-  }
+    .cta-btn:active {
+      transform: scale(0.95);
+    }
 
-  .btn:active, .download-btn:active, .product-button:active {
-    transform: scale(0.95);
-  }
+    /* ================= Products Cards ================= */
 
-  /* ================= Hero ================= */
+    .apps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
 
-  .hero {
-    position: relative;
-    background: transparent;
-    color: #0d47a1;
-    text-align: center;
-    padding: 16px 10px 8px;
-    margin: 0 auto 10px;
-    max-width: 1000px;
-  }
+    .app-card {
+      width: 280px;
+      height: 340px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      transition: 0.25s ease-in-out;
+    }
 
-  .hero h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
+    .app-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+    }
 
-  .hero p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 20px;
-  }
+    .app-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      padding: 10px;
+      background-color: #ffffff;
+    }
 
-  /* الأكواد العائمة داخل الهيرو */
-  /* ================= Hero Floating Code ================= */
+    .app-card h3 {
+      margin: 8px 0 0;
+      font-size: 1.15rem;
+      color: #0d47a1;
+      text-align: center;
+      width: 100%;
+    }
 
-.hero {
-  position: relative;          /* مهم جداً علشان الـ absolute يشتغل جواه */
-  background: transparent;
-  color: #0d47a1;
-  text-align: center;
-  padding: 16px 10px 8px;
-  margin: 0 auto 10px;
-  max-width: 1000px;
-}
+    .btn {
+      display: inline-block;
+      margin: 10px 0 16px;
+      padding: 8px 16px;
+      background-color: #0d47a1;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
 
-.hero h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
+    .btn:hover {
+      background-color: #08306b;
+    }
 
-.hero p {
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto 20px;
-}
+    /* أنيميشن الأزرار العامة */
+    .btn, .download-btn, .product-button {
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
 
-.hero-floating {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
+    .btn:hover, .download-btn:hover, .product-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
+    }
 
-/* الأكواد العائمة — بنستخدم كلاس منفصل لكل واحدة */
-.floating-code {
-  position: absolute;
-  color: rgba(13, 71, 161, 0.35); /* أزرق فاتح واضح */
-  font-size: 2.2rem;
-  opacity: 0;
-  animation: float 7s ease-in-out infinite;
-}
+    .btn:active, .download-btn:active, .product-button:active {
+      transform: scale(0.95);
+    }
 
-.floating-code.code1 { top: -4px;  left: 14%; }
-.floating-code.code2 { top: 24px;  left: 30%; }
-.floating-code.code3 { top: 0px;  left: 50%; }
-.floating-code.code4 { top: 22px; left: 66%; }
-.floating-code.code5 { top: 8px;  left: 82%; }
+    footer {
+      background-color: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+      width: 100%;
+    }
 
-@keyframes float {
-  0%   { opacity: 0; transform: translateY(0); }
-  20%  { opacity: 1; transform: translateY(-6px); }
-  80%  { opacity: 1; transform: translateY(-10px); }
-  100% { opacity: 0; transform: translateY(-14px); }
-}
-  .cta-btn {
-    display: inline-block;
-    padding: 10px 22px;
-    background: #0d47a1;      /* أزرق زي بقية الهوية */
-    color: #ffffff;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: transform 0.2s, background 0.3s, box-shadow 0.2s;
-  }
-
-  .cta-btn:hover {
-    background: #08306b;
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
-  }
-
-  .cta-btn:active {
-    transform: scale(0.95);
-  }
-</style>
+    footer a {
+      color: white;
+      text-decoration: underline;
+      margin: 0 10px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -279,14 +255,25 @@
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero">
-  <h2>مرحبًا بك في كودفانا 👋</h2>
-  <p>
-    نصمم تطبيقات وألعاب تعليمية تفاعلية تجعل حياتك أسهل وأكثر متعة!
-  </p>
-  <a href="#products" class="cta-btn">تصفح تطبيقاتنا 🚀</a>
-</section>
-    <section id="products">
+      <div class="hero-codes-row">
+        <span class="hero-code">{}</span>
+        <span class="hero-code">&lt;/&gt;</span>
+        <span class="hero-code">/* */</span>
+        <span class="hero-code">&lt;&gt;</span>
+        <span class="hero-code">=&gt;</span>
+      </div>
+
+      <h2>مرحبًا بك في كودفانا 👋</h2>
+      <p>
+        نصمم تطبيقات وألعاب تعليمية تفاعلية تجعل حياتك أسهل وأكثر متعة!
+      </p>
+      <a href="#products" class="cta-btn">تصفح تطبيقاتنا 🚀</a>
+    </section>
+
+    <!-- Services -->
+    <section>
       <h2 class="section-title">خدماتنا</h2>
       <ul>
         <li>تطوير تطبيقات الهاتف لأنظمة أندرويد و iOS</li>
@@ -296,7 +283,8 @@
       </ul>
     </section>
 
-    <section>
+    <!-- Products -->
+    <section id="products">
       <h2 class="section-title">منتجاتنا</h2>
       <div class="apps">
 
@@ -329,15 +317,3 @@
   </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
