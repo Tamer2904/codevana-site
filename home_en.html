@@ -24,6 +24,8 @@
 
     ::-webkit-scrollbar { display: none; }
 
+    /* ================== HEADER ================== */
+
     header {
       background-color: #0d47a1;
       color: white;
@@ -34,6 +36,16 @@
       position: sticky;
       top: 0;
       z-index: 10;
+      overflow: hidden;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      position: relative;
+      z-index: 2;
     }
 
     .left-header {
@@ -68,6 +80,43 @@
       color: #0d47a1;
     }
 
+    /* floating codes in blue banner */
+
+    .header-codes-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .header-code {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 1.6rem;
+      opacity: 0;
+      animation: floatHeader 7s ease-in-out infinite;
+    }
+
+    .header-code.code1 { top: 6px;  left: 26%; }
+    .header-code.code2 { top: 26px; left: 38%; }
+    .header-code.code3 { top: 4px;  left: 50%; }
+    .header-code.code4 { top: 24px; left: 62%; }
+    .header-code.code5 { top: 10px; left: 74%; }
+
+    .header-code.code2 { animation-delay: 0.4s; }
+    .header-code.code3 { animation-delay: 0.8s; }
+    .header-code.code4 { animation-delay: 1.2s; }
+    .header-code.code5 { animation-delay: 1.6s; }
+
+    @keyframes floatHeader {
+      0%   { opacity: 0; transform: translateY(0); }
+      20%  { opacity: 1; transform: translateY(-4px); }
+      80%  { opacity: 1; transform: translateY(-9px); }
+      100% { opacity: 0; transform: translateY(-13px); }
+    }
+
+    /* ================== LAYOUT ================== */
+
     main { flex: 1; }
 
     section {
@@ -82,7 +131,7 @@
       color: #0d47a1;
     }
 
-    /* ================= Hero ================= */
+    /* ================== HERO ================== */
 
     .hero {
       background: transparent;
@@ -102,32 +151,6 @@
       font-size: 1.1rem;
       max-width: 600px;
       margin: 0 auto 20px;
-    }
-
-    .hero-codes-row {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-bottom: 8px;
-    }
-
-    .hero-code {
-      color: rgba(13, 71, 161, 0.35);
-      font-size: 2.1rem;
-      opacity: 0;
-      animation: floatUp 6s ease-in-out infinite;
-    }
-
-    .hero-code:nth-child(2) { animation-delay: 0.3s; }
-    .hero-code:nth-child(3) { animation-delay: 0.6s; }
-    .hero-code:nth-child(4) { animation-delay: 0.9s; }
-    .hero-code:nth-child(5) { animation-delay: 1.2s; }
-
-    @keyframes floatUp {
-      0%   { opacity: 0; transform: translateY(0); }
-      20%  { opacity: 1; transform: translateY(-4px); }
-      80%  { opacity: 1; transform: translateY(-8px); }
-      100% { opacity: 0; transform: translateY(-12px); }
     }
 
     .cta-btn {
@@ -151,7 +174,7 @@
       transform: scale(0.95);
     }
 
-    /* ================= Products Cards ================= */
+    /* ================== CARDS ================== */
 
     .apps {
       display: flex;
@@ -225,6 +248,8 @@
       transform: scale(0.95);
     }
 
+    /* ================== FOOTER ================== */
+
     footer {
       background-color: #0d47a1;
       color: white;
@@ -243,26 +268,30 @@
 </head>
 <body>
   <header>
-    <div class="left-header">
-      <img src="codevana_logo_without_name.png" alt="Codevana Logo" />
-      <h1>Codevana</h1>
+    <!-- floating codes -->
+    <div class="header-codes-layer">
+      <span class="header-code code1">{}</span>
+      <span class="header-code code2">&lt;/&gt;</span>
+      <span class="header-code code3">/* */</span>
+      <span class="header-code code4">&lt;&gt;</span>
+      <span class="header-code code5">=&gt;</span>
     </div>
-    <div class="language-switcher">
-      <button onclick="location.href='home.html'">العربية</button>
+
+    <!-- header content -->
+    <div class="header-inner">
+      <div class="left-header">
+        <img src="codevana_logo_without_name.png" alt="Codevana Logo" />
+        <h1>Codevana</h1>
+      </div>
+      <div class="language-switcher">
+        <button onclick="location.href='home.html'">العربية</button>
+      </div>
     </div>
   </header>
 
   <main>
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-codes-row">
-        <span class="hero-code">{}</span>
-        <span class="hero-code">&lt;/&gt;</span>
-        <span class="hero-code">/* */</span>
-        <span class="hero-code">&lt;&gt;</span>
-        <span class="hero-code">=&gt;</span>
-      </div>
-
       <h2>Welcome to Codevana 👋</h2>
       <p>
         We design educational, interactive apps and games that make your life easier and more fun!
