@@ -24,35 +24,42 @@
 
     ::-webkit-scrollbar { display: none; }
 
-    /* ================== HEADER ================== */
+    /* ================== HEADER + HERO ================== */
 
     header {
       background-color: #0d47a1;
       color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 12px;
       position: sticky;
       top: 0;
       z-index: 10;
-      position: sticky;
+      overflow: hidden;          /* علشان الأكواد ما تطلعش برا */
+      padding: 8px 12px 26px;    /* مساحة للهيرو من تحت */
     }
 
-    /* علشان الأكواد تطير جوه الهيدر */
-    header {
-      position: sticky;
-      top: 0;
-      overflow: hidden;
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #0d47a1;
+      z-index: 0;
     }
 
     .header-inner {
+      position: relative;
+      z-index: 2;                /* فوق الخلفية والأكواد */
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-top {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
-      position: relative;
-      z-index: 2; /* فوق الأكواد */
     }
 
     .left-header {
@@ -62,12 +69,12 @@
     }
 
     header img {
-      height: 90px;
+      height: 70px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: white;
     }
 
@@ -79,7 +86,7 @@
       font-weight: bold;
       border-radius: 6px;
       cursor: pointer;
-      margin-top: 40px;
+      margin-top: 18px;
     }
 
     .language-switcher button:hover {
@@ -87,7 +94,45 @@
       color: #0d47a1;
     }
 
-    /* الأكواد العائمة داخل البانر الأزرق */
+    /* Hero content داخل الهيدر */
+
+    .hero-header {
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .hero-header h2 {
+      margin: 6px 0 6px;
+      font-size: 1.9rem;
+    }
+
+    .hero-header p {
+      margin: 0 0 14px;
+      font-size: 1.05rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 9px 22px;
+      background: #ffffff;
+      color: #0d47a1;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: transform 0.2s, background 0.3s, box-shadow 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: #e3f2fd;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
+    }
+
+    .cta-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* الأكواد العائمة في البانر الأزرق */
 
     .header-codes-layer {
       position: absolute;
@@ -98,18 +143,17 @@
 
     .header-code {
       position: absolute;
-      color: rgba(255, 255, 255, 0.65);
+      color: rgba(255, 255, 255, 0.7);
       font-size: 1.6rem;
       opacity: 0;
       animation: floatHeader 7s ease-in-out infinite;
     }
 
-    /* توزيع الأكواد بشكل شبه عشوائي عبر عرض الهيدر */
-    .header-code.code1 { top: 6px;  left: 26%; }
-    .header-code.code2 { top: 26px; left: 38%; }
-    .header-code.code3 { top: 4px;  left: 50%; }
-    .header-code.code4 { top: 24px; left: 62%; }
-    .header-code.code5 { top: 10px; left: 74%; }
+    .header-code.code1 { top: 10px; left: 24%; }
+    .header-code.code2 { top: 32px; left: 36%; }
+    .header-code.code3 { top: 8px;  left: 50%; }
+    .header-code.code4 { top: 30px; left: 64%; }
+    .header-code.code5 { top: 14px; left: 78%; }
 
     .header-code.code2 { animation-delay: 0.4s; }
     .header-code.code3 { animation-delay: 0.8s; }
@@ -137,49 +181,6 @@
       font-size: 1.6rem;
       margin-bottom: 20px;
       color: #0d47a1;
-    }
-
-    /* ================== HERO ================== */
-
-    .hero {
-      background: transparent;
-      color: #0d47a1;
-      text-align: center;
-      padding: 16px 10px 8px;
-      margin: 0 auto 10px;
-      max-width: 1000px;
-    }
-
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto 20px;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 10px 22px;
-      background: #0d47a1;
-      color: #ffffff;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: transform 0.2s, background 0.3s, box-shadow 0.2s;
-    }
-
-    .cta-btn:hover {
-      background: #08306b;
-      transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
-    }
-
-    .cta-btn:active {
-      transform: scale(0.95);
     }
 
     /* ================== CARDS ================== */
@@ -277,7 +278,7 @@
 </head>
 <body>
   <header>
-    <!-- طبقة الأكواد العائمة -->
+    <!-- الأكواد العائمة -->
     <div class="header-codes-layer">
       <span class="header-code code1">{}</span>
       <span class="header-code code2">&lt;/&gt;</span>
@@ -286,29 +287,27 @@
       <span class="header-code code5">=&gt;</span>
     </div>
 
-    <!-- محتوى الهيدر (اللوجو + زر اللغة) -->
     <div class="header-inner">
-      <div class="left-header">
-        <img src="codevana_logo_without_name.png" alt="Codevana Logo" />
-        <h1>Codevana</h1>
+      <div class="header-top">
+        <div class="left-header">
+          <img src="codevana_logo_without_name.png" alt="Codevana Logo" />
+          <h1>Codevana</h1>
+        </div>
+        <div class="language-switcher">
+          <button onclick="location.href='home_en.html'">English</button>
+        </div>
       </div>
-      <div class="language-switcher">
-        <button onclick="location.href='home_en.html'">English</button>
+
+      <!-- الهيرو جوه نفس البانر الأزرق -->
+      <div class="hero-header">
+        <h2>مرحبًا بك في كودفانا 👋</h2>
+        <p>نصمم تطبيقات وألعاب تعليمية تفاعلية تجعل حياتك أسهل وأكثر متعة!</p>
+        <a href="#products" class="cta-btn">تصفح تطبيقاتنا 🚀</a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
-      <h2>مرحبًا بك في كودفانا 👋</h2>
-      <p>
-        نصمم تطبيقات وألعاب تعليمية تفاعلية تجعل حياتك أسهل وأكثر متعة!
-      </p>
-      <a href="#products" class="cta-btn">تصفح تطبيقاتنا 🚀</a>
-    </section>
-
-    <!-- Services -->
     <section>
       <h2 class="section-title">خدماتنا</h2>
       <ul>
@@ -319,7 +318,6 @@
       </ul>
     </section>
 
-    <!-- Products -->
     <section id="products">
       <h2 class="section-title">منتجاتنا</h2>
       <div class="apps">
