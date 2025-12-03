@@ -39,13 +39,12 @@
       z-index: 10;
       height: 80px;
       padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* أول عنصر على اليمين، آخر عنصر على الشمال في RTL */
     }
 
     .left-header {
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -59,13 +58,6 @@
       margin: 0;
       font-size: 1.6rem;
       color: white;
-    }
-
-    .language-switcher {
-      position: absolute;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
     }
 
     .language-switcher button {
@@ -84,9 +76,10 @@
     }
 
     /* صف الأكواد العائمة داخل الهيدر */
+
     .header-code-row {
       position: absolute;
-      top: 8px;
+      top: 6px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -114,6 +107,8 @@
       85%  { opacity: 1; transform: translateY(-4px); }
       100% { opacity: 0; transform: translateY(0); }
     }
+
+    /* ======= MAIN LAYOUT ======= */
 
     main {
       flex: 1;
@@ -234,7 +229,8 @@
       background-color: #08306b;
     }
 
-    /* أنيميشن الأزرار (هوفر + جلو بسيط) */
+    /* أنيميشن الأزرار */
+
     .btn,
     .cta-btn,
     .download-btn,
@@ -276,11 +272,13 @@
 
 <body>
   <header>
+    <!-- اللوجو + اسم الشركة (هيظهروا في أقصى اليمين في RTL) -->
     <div class="left-header">
       <img src="codevana_logo_without_name.png" alt="Codevana Logo" />
       <h1>Codevana</h1>
     </div>
 
+    <!-- الأكواد العائمة في الشريط الأزرق -->
     <div class="header-code-row">
       <span>{}</span>
       <span>&lt;/&gt;</span>
@@ -289,6 +287,7 @@
       <span>=&gt;</span>
     </div>
 
+    <!-- زر اللغة (هيوصل لأقصى الشمال في RTL) -->
     <div class="language-switcher">
       <button onclick="location.href='home_en.html'">English</button>
     </div>
