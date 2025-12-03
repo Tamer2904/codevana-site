@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Codevana - الرئيسية</title>
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html, body {
       margin: 0;
@@ -22,20 +25,23 @@
       flex-direction: column;
     }
 
-    ::-webkit-scrollbar { display: none; }
-
-    /* ================== HEADER ================== */
-
-    header {
-      position: relative;
-      background-color: #0d47a1;
-      color: white;
-      height: 80px;
-      padding: 8px 12px;
+    ::-webkit-scrollbar {
+      display: none;
     }
 
-    /* اللوجو في أقصى اليمين */
-    .logo {
+    /* ======= HEADER ======= */
+
+    header {
+      background-color: #0d47a1;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 80px;
+      padding: 0 20px;
+    }
+
+    .left-header {
       position: absolute;
       right: 20px;
       top: 50%;
@@ -45,17 +51,16 @@
       gap: 10px;
     }
 
-    .logo img {
-      height: 50px;
+    header img {
+      height: 60px;
     }
 
-    .logo h1 {
+    header h1 {
       margin: 0;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: white;
     }
 
-    /* زر اللغة في أقصى اليسار */
     .language-switcher {
       position: absolute;
       left: 20px;
@@ -78,17 +83,16 @@
       color: #0d47a1;
     }
 
-    /* الأكواد العائمة في منتصف البانر */
-
+    /* صف الأكواد العائمة داخل الهيدر */
     .header-code-row {
       position: absolute;
+      top: 8px;
       left: 50%;
-      top: 10px;
       transform: translateX(-50%);
       display: flex;
       gap: 26px;
       font-size: 1.4rem;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255, 255, 255, 0.8);
       pointer-events: none;
     }
 
@@ -111,9 +115,9 @@
       100% { opacity: 0; transform: translateY(0); }
     }
 
-    /* ================== MAIN ================== */
-
-    main { flex: 1; }
+    main {
+      flex: 1;
+    }
 
     section {
       padding: 20px;
@@ -121,13 +125,20 @@
       margin: auto;
     }
 
-    /* Hero */
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: #0d47a1;
+    }
+
+    /* ======= HERO ======= */
 
     .hero {
       text-align: center;
+      padding: 22px 10px 10px;
+      margin: 0 auto 5px;
+      max-width: 1000px;
       color: #0d47a1;
-      padding: 24px 10px 10px;
-      margin-top: 4px;
     }
 
     .hero h2 {
@@ -162,11 +173,7 @@
       transform: scale(0.95);
     }
 
-    .section-title {
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-      color: #0d47a1;
-    }
+    /* ======= PRODUCTS CARDS ======= */
 
     .apps {
       display: flex;
@@ -227,22 +234,28 @@
       background-color: #08306b;
     }
 
-    /* أنيميشن الأزرار */
-
-    .btn, .download-btn, .product-button {
+    /* أنيميشن الأزرار (هوفر + جلو بسيط) */
+    .btn,
+    .cta-btn,
+    .download-btn,
+    .product-button {
       transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     }
 
-    .btn:hover, .download-btn:hover, .product-button:hover {
+    .btn:hover,
+    .download-btn:hover,
+    .product-button:hover {
       transform: scale(1.05);
       box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
     }
 
-    .btn:active, .download-btn:active, .product-button:active {
+    .btn:active,
+    .download-btn:active,
+    .product-button:active {
       transform: scale(0.95);
     }
 
-    /* ================== FOOTER ================== */
+    /* ======= FOOTER ======= */
 
     footer {
       background-color: #0d47a1;
@@ -260,9 +273,10 @@
     }
   </style>
 </head>
+
 <body>
   <header>
-    <div class="logo">
+    <div class="left-header">
       <img src="codevana_logo_without_name.png" alt="Codevana Logo" />
       <h1>Codevana</h1>
     </div>
@@ -281,6 +295,7 @@
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero">
       <h2>مرحبًا بك في كودفانا 👋</h2>
       <p>
@@ -289,6 +304,7 @@
       <a href="#products" class="cta-btn">تصفح تطبيقاتنا 🚀</a>
     </section>
 
+    <!-- Services -->
     <section id="products">
       <h2 class="section-title">خدماتنا</h2>
       <ul>
@@ -299,14 +315,15 @@
       </ul>
     </section>
 
+    <!-- Products -->
     <section>
       <h2 class="section-title">منتجاتنا</h2>
       <div class="apps">
 
         <div class="app-card">
-          <img src="prayertimes.png" alt="مواقيت الصلاة" />
-          <h3>مواقيت الصلاة</h3>
-          <a href="prayertimes.html" class="btn">عرض التطبيق</a>
+          <img src="memorial.png" alt="تذكير الأحباب" />
+          <h3>تذكير الأحباب</h3>
+          <a href="memorial.html" class="btn">عرض التطبيق</a>
         </div>
 
         <div class="app-card">
@@ -316,9 +333,9 @@
         </div>
 
         <div class="app-card">
-          <img src="memorial.png" alt="تذكير الأحباب" />
-          <h3>تذكير الأحباب</h3>
-          <a href="memorial.html" class="btn">عرض التطبيق</a>
+          <img src="prayertimes.png" alt="مواقيت الصلاة" />
+          <h3>مواقيت الصلاة</h3>
+          <a href="prayertimes.html" class="btn">عرض التطبيق</a>
         </div>
 
       </div>
