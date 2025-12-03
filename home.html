@@ -24,58 +24,43 @@
 
     ::-webkit-scrollbar { display: none; }
 
-    /* ================== HEADER + HERO ================== */
+    /* ================== HEADER ================== */
 
     header {
-  background-color: #0d47a1;
-  color: white;
-  display: flex;
-  flex-direction: row-reverse;   /* 🔹 ده السطر المهم */
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 12px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: #0d47a1;
-      z-index: 0;
+      position: relative;
+      background-color: #0d47a1;
+      color: white;
+      height: 80px;
+      padding: 8px 12px;
     }
 
-    .header-inner {
-    position: relative;
-    z-index: 2;
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-    .header-top {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-    .left-header {
+    /* اللوجو في أقصى اليمين */
+    .logo {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 10px;
     }
 
-    header img {
-      height: 70px;
+    .logo img {
+      height: 50px;
     }
 
-    header h1 {
+    .logo h1 {
       margin: 0;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       color: white;
+    }
+
+    /* زر اللغة في أقصى اليسار */
+    .language-switcher {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     .language-switcher button {
@@ -86,7 +71,6 @@
       font-weight: bold;
       border-radius: 6px;
       cursor: pointer;
-      margin-top: 18px;
     }
 
     .language-switcher button:hover {
@@ -94,80 +78,40 @@
       color: #0d47a1;
     }
 
-    /* Hero content داخل الهيدر */
+    /* الأكواد العائمة في منتصف البانر */
 
-    .hero-header {
-    text-align: center;
-    margin-top: 20px;
-}
-
-    .hero-header h2 {
-      margin: 6px 0 6px;
-      font-size: 1.9rem;
-    }
-
-    .hero-header p {
-      margin: 0 0 14px;
-      font-size: 1.05rem;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 9px 22px;
-      background: #ffffff;
-      color: #0d47a1;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: transform 0.2s, background 0.3s, box-shadow 0.2s;
-    }
-
-    .cta-btn:hover {
-      background: #e3f2fd;
-      transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
-    }
-
-    .cta-btn:active {
-      transform: scale(0.95);
-    }
-
-    /* الأكواد العائمة في البانر الأزرق */
-
-    .header-codes-layer {
+    .header-code-row {
       position: absolute;
-      inset: 0;
+      left: 50%;
+      top: 10px;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 26px;
+      font-size: 1.4rem;
+      color: rgba(255,255,255,0.75);
       pointer-events: none;
-      z-index: 1;
     }
 
-    .header-code {
-      position: absolute;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 1.6rem;
+    .header-code-row span {
       opacity: 0;
-      animation: floatHeader 7s ease-in-out infinite;
+      animation: floatCode 6s ease-in-out infinite;
     }
 
-    .header-code.code1 { top: 10px; left: 24%; }
-    .header-code.code2 { top: 32px; left: 36%; }
-    .header-code.code3 { top: 8px;  left: 50%; }
-    .header-code.code4 { top: 30px; left: 64%; }
-    .header-code.code5 { top: 14px; left: 78%; }
+    .header-code-row span:nth-child(1) { animation-delay: 0s; }
+    .header-code-row span:nth-child(2) { animation-delay: 0.6s; }
+    .header-code-row span:nth-child(3) { animation-delay: 1.2s; }
+    .header-code-row span:nth-child(4) { animation-delay: 1.8s; }
+    .header-code-row span:nth-child(5) { animation-delay: 2.4s; }
 
-    .header-code.code2 { animation-delay: 0.4s; }
-    .header-code.code3 { animation-delay: 0.8s; }
-    .header-code.code4 { animation-delay: 1.2s; }
-    .header-code.code5 { animation-delay: 1.6s; }
-
-    @keyframes floatHeader {
+    @keyframes floatCode {
       0%   { opacity: 0; transform: translateY(0); }
-      20%  { opacity: 1; transform: translateY(-4px); }
-      80%  { opacity: 1; transform: translateY(-9px); }
-      100% { opacity: 0; transform: translateY(-13px); }
+      15%  { opacity: 1; transform: translateY(-4px); }
+      50%  { opacity: 1; transform: translateY(-8px); }
+      85%  { opacity: 1; transform: translateY(-4px); }
+      100% { opacity: 0; transform: translateY(0); }
     }
 
-    /* ================== LAYOUT ================== */
+    /* ================== MAIN ================== */
 
     main { flex: 1; }
 
@@ -177,13 +121,52 @@
       margin: auto;
     }
 
+    /* Hero */
+
+    .hero {
+      text-align: center;
+      color: #0d47a1;
+      padding: 24px 10px 10px;
+      margin-top: 4px;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 10px 22px;
+      background: #0d47a1;
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: transform 0.2s, background 0.3s, box-shadow 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: #08306b;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
+    }
+
+    .cta-btn:active {
+      transform: scale(0.95);
+    }
+
     .section-title {
       font-size: 1.6rem;
       margin-bottom: 20px;
       color: #0d47a1;
     }
-
-    /* ================== CARDS ================== */
 
     .apps {
       display: flex;
@@ -244,7 +227,8 @@
       background-color: #08306b;
     }
 
-    /* أنيميشن الأزرار العامة */
+    /* أنيميشن الأزرار */
+
     .btn, .download-btn, .product-button {
       transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     }
@@ -278,37 +262,34 @@
 </head>
 <body>
   <header>
-    <!-- الأكواد العائمة -->
-    <div class="header-codes-layer">
-      <span class="header-code code1">{}</span>
-      <span class="header-code code2">&lt;/&gt;</span>
-      <span class="header-code code3">/* */</span>
-      <span class="header-code code4">&lt;&gt;</span>
-      <span class="header-code code5">=&gt;</span>
+    <div class="logo">
+      <img src="codevana_logo_without_name.png" alt="Codevana Logo" />
+      <h1>Codevana</h1>
     </div>
 
-    <div class="header-inner">
-      <div class="header-top">
-        <div class="left-header">
-          <img src="codevana_logo_without_name.png" alt="Codevana Logo" />
-          <h1>Codevana</h1>
-        </div>
-        <div class="language-switcher">
-          <button onclick="location.href='home_en.html'">English</button>
-        </div>
-      </div>
+    <div class="header-code-row">
+      <span>{}</span>
+      <span>&lt;/&gt;</span>
+      <span>/* */</span>
+      <span>&lt;&gt;</span>
+      <span>=&gt;</span>
+    </div>
 
-      <!-- الهيرو جوه نفس البانر الأزرق -->
-      <div class="hero-header">
-        <h2>مرحبًا بك في كودفانا 👋</h2>
-        <p>نصمم تطبيقات وألعاب تعليمية تفاعلية تجعل حياتك أسهل وأكثر متعة!</p>
-        <a href="#products" class="cta-btn">تصفح تطبيقاتنا 🚀</a>
-      </div>
+    <div class="language-switcher">
+      <button onclick="location.href='home_en.html'">English</button>
     </div>
   </header>
 
   <main>
-    <section>
+    <section class="hero">
+      <h2>مرحبًا بك في كودفانا 👋</h2>
+      <p>
+        نصمم تطبيقات وألعاب تعليمية تفاعلية تجعل حياتك أسهل وأكثر متعة!
+      </p>
+      <a href="#products" class="cta-btn">تصفح تطبيقاتنا 🚀</a>
+    </section>
+
+    <section id="products">
       <h2 class="section-title">خدماتنا</h2>
       <ul>
         <li>تطوير تطبيقات الهاتف لأنظمة أندرويد و iOS</li>
@@ -318,14 +299,14 @@
       </ul>
     </section>
 
-    <section id="products">
+    <section>
       <h2 class="section-title">منتجاتنا</h2>
       <div class="apps">
 
         <div class="app-card">
-          <img src="memorial.png" alt="تذكير الأحباب" />
-          <h3>تذكير الأحباب</h3>
-          <a href="memorial.html" class="btn">عرض التطبيق</a>
+          <img src="prayertimes.png" alt="مواقيت الصلاة" />
+          <h3>مواقيت الصلاة</h3>
+          <a href="prayertimes.html" class="btn">عرض التطبيق</a>
         </div>
 
         <div class="app-card">
@@ -335,9 +316,9 @@
         </div>
 
         <div class="app-card">
-          <img src="prayertimes.png" alt="مواقيت الصلاة" />
-          <h3>مواقيت الصلاة</h3>
-          <a href="prayertimes.html" class="btn">عرض التطبيق</a>
+          <img src="memorial.png" alt="تذكير الأحباب" />
+          <h3>تذكير الأحباب</h3>
+          <a href="memorial.html" class="btn">عرض التطبيق</a>
         </div>
 
       </div>
@@ -351,5 +332,3 @@
   </footer>
 </body>
 </html>
-
-
