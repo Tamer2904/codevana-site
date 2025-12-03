@@ -27,14 +27,17 @@
     /* ================== HEADER + HERO ================== */
 
     header {
-      background-color: #0d47a1;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      overflow: hidden;          /* علشان الأكواد ما تطلعش برا */
-      padding: 8px 12px 26px;    /* مساحة للهيرو من تحت */
-    }
+  background-color: #0d47a1;
+  color: white;
+  display: flex;
+  flex-direction: row-reverse;   /* 🔹 ده السطر المهم */
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
     header::before {
       content: "";
@@ -348,4 +351,5 @@
   </footer>
 </body>
 </html>
+
 
