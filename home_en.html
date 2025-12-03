@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Codevana - Home</title>
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html, body {
       margin: 0;
@@ -22,45 +25,39 @@
       flex-direction: column;
     }
 
-    ::-webkit-scrollbar { display: none; }
-
-    /* ================== HEADER ================== */
-
-    header {
-      position: relative;
-      background-color: #0d47a1;
-      color: white;
-      height: 80px;
-      padding: 8px 12px;
+    ::-webkit-scrollbar {
+      display: none;
     }
 
-    /* Logo at far LEFT in English */
-    .logo {
-      position: absolute;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
+    /* ======= HEADER ======= */
+
+    header {
+      background-color: #0d47a1;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 80px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* في LTR: اللوجو شمال، الزر يمين */
+    }
+
+    .left-header {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .logo img {
-      height: 50px;
+    header img {
+      height: 60px;
     }
 
-    .logo h1 {
+    header h1 {
       margin: 0;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: white;
-    }
-
-    /* Language button at far RIGHT */
-    .language-switcher {
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
     }
 
     .language-switcher button {
@@ -78,17 +75,17 @@
       color: #0d47a1;
     }
 
-    /* Floating code row in center */
+    /* floating code row */
 
     .header-code-row {
       position: absolute;
+      top: 6px;
       left: 50%;
-      top: 10px;
       transform: translateX(-50%);
       display: flex;
       gap: 26px;
       font-size: 1.4rem;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255, 255, 255, 0.8);
       pointer-events: none;
     }
 
@@ -111,9 +108,11 @@
       100% { opacity: 0; transform: translateY(0); }
     }
 
-    /* ================== MAIN ================== */
+    /* ======= MAIN LAYOUT ======= */
 
-    main { flex: 1; }
+    main {
+      flex: 1;
+    }
 
     section {
       padding: 20px;
@@ -121,11 +120,20 @@
       margin: auto;
     }
 
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: #0d47a1;
+    }
+
+    /* ======= HERO ======= */
+
     .hero {
       text-align: center;
+      padding: 22px 10px 10px;
+      margin: 0 auto 5px;
+      max-width: 1000px;
       color: #0d47a1;
-      padding: 24px 10px 10px;
-      margin-top: 4px;
     }
 
     .hero h2 {
@@ -160,11 +168,7 @@
       transform: scale(0.95);
     }
 
-    .section-title {
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-      color: #0d47a1;
-    }
+    /* ======= PRODUCTS CARDS ======= */
 
     .apps {
       display: flex;
@@ -225,18 +229,29 @@
       background-color: #08306b;
     }
 
-    .btn, .download-btn, .product-button {
+    /* button animations */
+
+    .btn,
+    .cta-btn,
+    .download-btn,
+    .product-button {
       transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     }
 
-    .btn:hover, .download-btn:hover, .product-button:hover {
+    .btn:hover,
+    .download-btn:hover,
+    .product-button:hover {
       transform: scale(1.05);
       box-shadow: 0 0 10px rgba(13, 71, 161, 0.4);
     }
 
-    .btn:active, .download-btn:active, .product-button:active {
+    .btn:active,
+    .download-btn:active,
+    .product-button:active {
       transform: scale(0.95);
     }
+
+    /* ======= FOOTER ======= */
 
     footer {
       background-color: #0d47a1;
@@ -254,13 +269,16 @@
     }
   </style>
 </head>
+
 <body>
   <header>
-    <div class="logo">
+    <!-- logo on the LEFT in LTR -->
+    <div class="left-header">
       <img src="codevana_logo_without_name.png" alt="Codevana Logo" />
       <h1>Codevana</h1>
     </div>
 
+    <!-- floating code row in blue bar -->
     <div class="header-code-row">
       <span>{}</span>
       <span>&lt;/&gt;</span>
@@ -269,12 +287,14 @@
       <span>=&gt;</span>
     </div>
 
+    <!-- language switcher on the RIGHT in LTR -->
     <div class="language-switcher">
       <button onclick="location.href='home.html'">العربية</button>
     </div>
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero">
       <h2>Welcome to Codevana 👋</h2>
       <p>
@@ -283,6 +303,7 @@
       <a href="#products" class="cta-btn">Browse our apps 🚀</a>
     </section>
 
+    <!-- Services -->
     <section id="products">
       <h2 class="section-title">Our Services</h2>
       <ul>
@@ -293,6 +314,7 @@
       </ul>
     </section>
 
+    <!-- Products -->
     <section>
       <h2 class="section-title">Our Products</h2>
       <div class="apps">
