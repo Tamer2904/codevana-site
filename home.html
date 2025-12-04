@@ -31,25 +31,22 @@
     /* ================== الهيدر ================== */
 
     header {
+      background-color: #0d47a1;
+      color: white;
       position: sticky;
       top: 0;
       z-index: 10;
-      background-color: #0d47a1;
-      color: #ffffff;
-      height: 200px;           /* ارتفاع الهيدر */
-      overflow: hidden;
     }
 
     .header-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 10px 16px;
+      padding: 20px 16px 40px;      /* هنا نتحكم في ارتفاع الهيدر */
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-direction: row-reverse;   /* لوجو يمين، زر يسار */
+      flex-direction: row-reverse;  /* لوجو يمين – زر اللغة شمال */
       position: relative;
-      z-index: 2;                     /* فوق الأكواد العائمة */
     }
 
     .logo-wrapper {
@@ -69,8 +66,8 @@
 
     .language-switcher button {
       background-color: transparent;
-      border: 2px solid #ffffff;
-      color: #ffffff;
+      border: 2px solid white;
+      color: white;
       padding: 6px 16px;
       font-weight: bold;
       border-radius: 6px;
@@ -79,47 +76,49 @@
     }
 
     .language-switcher button:hover {
-      background-color: #ffffff;
+      background-color: white;
       color: #0d47a1;
     }
 
-    /* طبقة الأكواد العائمة فوق الهيدر كله */
+    /* طبقة الأكواد العائمة داخل الهيدر */
     .header-code-layer {
       position: absolute;
-      inset: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
       pointer-events: none;
-      overflow: hidden;
-      z-index: 1;
     }
 
     .floating-code {
       position: absolute;
       color: rgba(255, 255, 255, 0.55);
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       font-weight: 600;
       text-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
       opacity: 0;
-      animation-name: codeFloat;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      /* باقي الخصائص (المدة، التأخير، الخ) من الـ JS */
+      animation: floatCode 9s ease-in-out infinite;
     }
 
-    @keyframes codeFloat {
-      0% {
-        transform: translate3d(var(--start-x, 0), 40px, 0) rotate(var(--start-rot, 0deg));
-        opacity: 0;
-      }
-      15% {
-        opacity: 1;
-      }
-      60% {
-        opacity: 1;
-      }
-      100% {
-        transform: translate3d(var(--end-x, 0), -80px, 0) rotate(var(--end-rot, 0deg));
-        opacity: 0;
-      }
+    /* نوزّع الأكواد عشوائيًا تقريبًا ونغيّر السرعة والتأخير لكل واحدة */
+    .floating-code.c1  { top: 10px; left: 12%; animation-duration: 8s; animation-delay: 0s; }
+    .floating-code.c2  { top: 24px; left: 26%; animation-duration: 10s; animation-delay: 1.2s; }
+    .floating-code.c3  { top: 6px;  left: 40%; animation-duration: 9s;  animation-delay: 0.7s; }
+    .floating-code.c4  { top: 22px; left: 54%; animation-duration: 11s; animation-delay: 2.1s; }
+    .floating-code.c5  { top: 14px; left: 68%; animation-duration: 8.5s; animation-delay: 0.3s; }
+    .floating-code.c6  { top: 32px; left: 82%; animation-duration: 10.5s;animation-delay: 1.7s; }
+    .floating-code.c7  { top: 44px; left: 18%; animation-duration: 9.5s; animation-delay: 2.8s; }
+    .floating-code.c8  { top: 50px; left: 34%; animation-duration: 8.2s; animation-delay: 1.9s; }
+    .floating-code.c9  { top: 40px; left: 50%; animation-duration: 12s; animation-delay: 0.9s; }
+    .floating-code.c10 { top: 56px; left: 64%; animation-duration: 9.8s; animation-delay: 3.1s; }
+    .floating-code.c11 { top: 48px; left: 78%; animation-duration: 7.8s; animation-delay: 2.3s; }
+    .floating-code.c12 { top: 20px; left: 5%;  animation-duration: 11.3s;animation-delay: 0.5s; }
+
+    @keyframes floatCode {
+      0%   { transform: translate(-8px, 12px);  opacity: 0; }
+      15%  { transform: translate(0, 0);        opacity: 1; }
+      60%  { transform: translate(6px, -10px);  opacity: 1; }
+      100% { transform: translate(10px, -20px); opacity: 0; }
     }
 
     /* ================== الهيرو ================== */
@@ -156,7 +155,7 @@
       display: inline-block;
       padding: 10px 24px;
       background: #0d47a1;
-      color: #ffffff;
+      color: white;
       font-weight: bold;
       text-decoration: none;
       border-radius: 8px;
@@ -242,7 +241,7 @@
       background-color: #08306b;
     }
 
-    /* أنيميشن الأزرار العامة (سكيل + جلو) */
+    /* أنيميشن الأزرار العامة */
     .btn,
     .cta-btn,
     .download-btn,
@@ -292,24 +291,22 @@
       <div class="language-switcher">
         <button onclick="location.href='home_en.html'">English</button>
       </div>
-    </div>
 
-    <!-- طبقة الأكواد العائمة -->
-    <div class="header-code-layer">
-      <span class="floating-code">{ }</span>
-      <span class="floating-code">&lt;/&gt;</span>
-      <span class="floating-code">/* */</span>
-      <span class="floating-code">&lt;&gt;</span>
-      <span class="floating-code">=&gt;</span>
-      <span class="floating-code">if()</span>
-      <span class="floating-code">const</span>
-      <span class="floating-code">()=>{}</span>
-      <span class="floating-code">while()</span>
-      <span class="floating-code">return</span>
-      <span class="floating-code">true</span>
-      <span class="floating-code">null;</span>
-      <span class="floating-code">for(;;)</span>
-      <span class="floating-code">let x</span>
+      <!-- طبقة الأكواد العائمة -->
+      <div class="header-code-layer">
+        <span class="floating-code c1">{}</span>
+        <span class="floating-code c2">&lt;/&gt;</span>
+        <span class="floating-code c3">/* */</span>
+        <span class="floating-code c4">&lt;&gt;</span>
+        <span class="floating-code c5">=&gt;</span>
+        <span class="floating-code c6">if()</span>
+        <span class="floating-code c7">const</span>
+        <span class="floating-code c8">()=>{}</span>
+        <span class="floating-code c9">while()</span>
+        <span class="floating-code c10">return</span>
+        <span class="floating-code c11">true</span>
+        <span class="floating-code c12">null;</span>
+      </div>
     </div>
   </header>
 
@@ -317,9 +314,7 @@
     <!-- هيرو -->
     <section class="hero">
       <h2>مرحبًا بك في كودفانا 👋</h2>
-      <p>
-        نصمم تطبيقات وألعاب تعليمية تفاعلية تجعل حياتك أسهل وأكثر متعة!
-      </p>
+      <p>نصمم تطبيقات وألعاب تعليمية تفاعلية تجعل حياتك أسهل وأكثر متعة!</p>
       <a href="#products" class="cta-btn">تصفح تطبيقاتنا 🚀</a>
     </section>
 
@@ -364,43 +359,5 @@
     <a href="privacy.html">سياسة الخصوصية</a> |
     <a href="contact.html">اتصل بنا</a>
   </footer>
-
-  <!-- سكربت العشوائية لحركة الأكواد -->
-  <script>
-    (function () {
-      const codes = document.querySelectorAll('.header-code-layer .floating-code');
-
-      function randomizeCode(el) {
-        // موضع أفقي عشوائي على عرض الهيدر
-        const xPercent = Math.random() * 100; // 0 - 100%
-        el.style.left = xPercent + '%';
-
-        // إزاحة أفقية بسيطة (يمين/يسار)
-        const startX = (Math.random() * 60 - 30).toFixed(1) + 'px';
-        const endX = (Math.random() * 60 - 30).toFixed(1) + 'px';
-        el.style.setProperty('--start-x', startX);
-        el.style.setProperty('--end-x', endX);
-
-        // دوران خفيف مختلف
-        const startRot = (Math.random() * 16 - 8).toFixed(1) + 'deg';
-        const endRot = (Math.random() * 16 - 8).toFixed(1) + 'deg';
-        el.style.setProperty('--start-rot', startRot);
-        el.style.setProperty('--end-rot', endRot);
-
-        // مدة الأنيميشن 6–12 ثانية
-        const duration = 6 + Math.random() * 6;
-        el.style.animationDuration = duration.toFixed(2) + 's';
-
-        // تأخير البداية 0–6 ثواني
-        const delay = Math.random() * 6;
-        el.style.animationDelay = delay.toFixed(2) + 's';
-      }
-
-      codes.forEach(el => {
-        randomizeCode(el);
-        el.addEventListener('animationiteration', () => randomizeCode(el));
-      });
-    })();
-  </script>
 </body>
 </html>
